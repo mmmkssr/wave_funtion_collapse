@@ -148,8 +148,14 @@ function setup() {
       opciones: opcionesI,
     };
   }
-  celdas[8].colapsada = true;
-  celdas[3].colapsada = true;
+  //celdas[8].colapsada = true;
+  //celdas[3].colapsada = true;
+
+  //celdas[12].opciones = [5, 6, 8];
+  //celdas[4].opciones = [4, 7, 12];
+  //celdas[6].opciones = [9, 7, 12];
+  //celdas[1].opciones = [6, 4, 8, 10];
+  //celdas[5].opciones = [11, 6, 4, 8, 10];
 }
 
 function draw() {
@@ -167,8 +173,21 @@ function draw() {
   //});
 
   //Forma3
-  const celdasDisponibles = celdas.filter((celda) => celda.colapsada == false); //recibe el valor y lo compara
+  const celdasDisponibles = celdas.filter((celda) => {
+    return celda.colapsada == false;
+  }); //recibe el valor y lo compara
+
   if (celdasDisponibles.length > 0) {
+    celdasDisponibles.sort((a, b) => {
+      return a.opciones.length - b.opciones.length;
+    });
+    const celdasPorColapsar = celdasDisponibles.filter((celda) => {
+      return celda.opciones.length == celdasDisponibles[0].opciones.length;
+    });
+
+    const celdaSeleccionada = random(celdasPorColapsar);
+
+    print(celdaSeleccionada);
   }
   noLoop();
 }

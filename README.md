@@ -10,4 +10,7 @@ La variable RETICULA y la variable NA (número de azulejos debe estar en mayúsc
 
 `=>` Función anónima
 
+## Sort function
 
+`sort()` Se utiliza para ordenar los elementos de la matriz. 
+Si los elementos son cadenas, los ordena alfabéticamente; si son números enteros, los ordena en orden creciente.
