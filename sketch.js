@@ -1,5 +1,7 @@
 const celdas = []; // 4x4
-const RETICULA = 4; // número de lados, puede variar
+const RETICULA = 40; // número de lados, puede variar
+let ancho; // altura de celda
+let alto; // anchura de celda
 
 const azulejos = [];
 const NA = 15; // número de azulejos
@@ -137,6 +139,9 @@ function preload() {
 function setup() {
   createCanvas(1080, 1080);
 
+  ancho = width / RETICULA;
+  alto = height / RETICULA;
+
   let opcionesI = [];
   for (let i = 0; i < azulejos.length; i++) {
     opcionesI.push(i);
@@ -159,6 +164,8 @@ function setup() {
 }
 
 function draw() {
+  //background(100);
+
   //Otras formas de escribir la función
 
   //Forma1
@@ -186,8 +193,29 @@ function draw() {
     });
 
     const celdaSeleccionada = random(celdasPorColapsar);
+    celdaSeleccionada.colapsada = true;
+
+    const opcionSeleccionada = random(celdaSeleccionada.opciones);
+    celdaSeleccionada.opciones = [opcionSeleccionada];
 
     print(celdaSeleccionada);
+
+    for (let x = 0; x < RETICULA; x++) {
+      for (let y = 0; y < RETICULA; y++) {
+        const celdaIndex = x + y * RETICULA;
+        const celdaActual = celdas[celdaIndex];
+
+        if (celdaActual.colapsada) {
+          image(
+            azulejos[celdaActual.opciones[0]],
+            x * ancho,
+            y * alto,
+            ancho,
+            alto
+          );
+        }
+      }
+    }
+    //noLoop();
   }
-  noLoop();
 }
