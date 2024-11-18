@@ -129,7 +129,7 @@ const reglas = [
 
 function preload() {
   for (let i = 0; i < NA; i++) {
-    //azulejos[i] = loadImage(`azulejos/tile${i}.png`);
+    //azulejos[i] = loadImage(`azulejos/tile${i}.png`); // otra forma de cargar las imágenes
     azulejos[i] = loadImage("azulejos/tile" + i + ".png");
   }
 }
@@ -148,7 +148,27 @@ function setup() {
       opciones: opcionesI,
     };
   }
-  print(celdas);
+  celdas[8].colapsada = true;
+  celdas[3].colapsada = true;
 }
 
-function draw() {}
+function draw() {
+  //Otras formas de escribir la función
+
+  //Forma1
+  //function filtrarCeldas(celda){
+  //return celda.colapsada == false;
+  //}
+  //const celdasActuales = celdas.filter(filtrarCeldas);
+
+  //Forma2
+  //const celdasActuales = celdas.filter (function (celda){
+  //return celda.colapsada == false; //ingresa la función de forma anónima
+  //});
+
+  //Forma3
+  const celdasDisponibles = celdas.filter((celda) => celda.colapsada == false); //recibe el valor y lo compara
+  if (celdasDisponibles.length > 0) {
+  }
+  noLoop();
+}
