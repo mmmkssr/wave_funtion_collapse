@@ -1,5 +1,5 @@
 const celdas = []; // 4x4
-const RETICULA = 25; // número de lados, puede variar
+const RETICULA = 20; // número de lados, puede variar
 let ancho; // altura de celda
 let alto; // anchura de celda
 
