@@ -1,10 +1,12 @@
 const celdas = []; // 4x4
-const RETICULA = 40; // número de lados, puede variar
+const RETICULA = 10; // número de lados, puede variar
 let ancho; // altura de celda
 let alto; // anchura de celda
 
 const azulejos = [];
 const NA = 15; // número de azulejos
+
+let opcionesI = [];
 
 const reglas = [
   // reglas de los bordes de cada azulejo
@@ -142,7 +144,6 @@ function setup() {
   ancho = width / RETICULA;
   alto = height / RETICULA;
 
-  let opcionesI = [];
   for (let i = 0; i < azulejos.length; i++) {
     opcionesI.push(i);
   }
@@ -164,7 +165,7 @@ function setup() {
 }
 
 function draw() {
-  //background(100);
+  background(100);
 
   //Otras formas de escribir la función
 
@@ -198,7 +199,7 @@ function draw() {
     const opcionSeleccionada = random(celdaSeleccionada.opciones);
     celdaSeleccionada.opciones = [opcionSeleccionada];
 
-    print(celdaSeleccionada);
+    //print(celdaSeleccionada);
 
     for (let x = 0; x < RETICULA; x++) {
       for (let y = 0; y < RETICULA; y++) {
@@ -206,16 +207,71 @@ function draw() {
         const celdaActual = celdas[celdaIndex];
 
         if (celdaActual.colapsada) {
-          image(
-            azulejos[celdaActual.opciones[0]],
-            x * ancho,
-            y * alto,
-            ancho,
-            alto
-          );
+          const indiceDeAzulejos = celdaActual.opciones[0];
+          const reglasActuales = reglas[indiceDeAzulejos];
+          //print(reglasActuales);
+          image(azulejos[indiceDeAzulejos], x * ancho, y * alto, ancho, alto);
+
+          // Monitorear entropía UP
+          if (y > 0) {
+            const indiceUP = x + (y - 1) * RETICULA; // Generar un índice
+            const celdaUP = celdas[indiceUP]; // Recuperar celda
+            if (!celdaUP.colapsada) {
+              cambiarEntropia(celdaUP, reglasActuales["UP"], "DOWN");
+            }
+
+            // Monitorear entropía RIGHT
+            if (x < RETICULA - 1) {
+              const indiceRIGHT = x + 1 + y * RETICULA; // Generar un índice
+              const celdaRIGHT = celdas[indiceRIGHT]; // Recuperar celda
+              if (!celdaRIGHT.colapsada) {
+                cambiarEntropia(celdaRIGHT, reglasActuales["RIGHT"], "LEFT");
+              }
+            }
+
+            // Monitorear entropía DOWN
+            if (y < RETICULA - 1) {
+              const indiceDOWN = x + (y + 1) * RETICULA; // Generar un índice
+              const celdaDOWN = celdas[indiceDOWN]; // Recuperar celda
+              if (!celdaDOWN.colapsada) {
+                cambiarEntropia(celdaDOWN, reglasActuales["DOWN"], "UP");
+              }
+            }
+
+            // Monitorear entropía LEFT
+            if (x > 0) {
+              const indiceLEFT = x - 1 + y * RETICULA; // Generar un índice
+              const celdaLEFT = celdas[indiceLEFT]; // Recuperar celda
+              if (!celdaLEFT.colapsada) {
+                cambiarEntropia(celdaLEFT, reglasActuales["LEFT"], "RIGHT");
+              }
+            }
+          } else {
+            //strokeWeight(5);
+            //rect(x * ancho, y * alto, ancho, alto);
+          }
         }
       }
+      //noLoop();
     }
-    //noLoop();
+  } else {
+    for (let i = 0; i < RETICULA * RETICULA; i++) {
+      celdas[i] = {
+        colapsada: false,
+        opciones: opcionesI,
+      };
+    }
+  }
+
+  function cambiarEntropia(_celda, _regla, _opuesta) {
+    const nuevasOpciones = [];
+    for (let i = 0; i < _celda.opciones.length; i++) {
+      if (_regla == reglas[_celda.opciones[i]][_opuesta]) {
+        const celdaCompatible = _celda.opciones[i];
+        nuevasOpciones.push(celdaCompatible);
+      }
+    }
+    _celda.opciones = nuevasOpciones;
+    print(nuevasOpciones);
   }
 }
