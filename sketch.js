@@ -1,10 +1,9 @@
 const celdas = []; // 4x4
-const RETICULA = 10; // número de lados, puede variar
+const RETICULA = 25; // número de lados, puede variar
 let ancho; // altura de celda
 let alto; // anchura de celda
 
 const azulejos = [];
-const NA = 15; // número de azulejos
 
 let opcionesI = [];
 
@@ -131,6 +130,8 @@ const reglas = [
   },
 ];
 
+const NA = reglas.length; // número de azulejos
+
 function preload() {
   for (let i = 0; i < NA; i++) {
     //azulejos[i] = loadImage(`azulejos/tile${i}.png`); // otra forma de cargar las imágenes
@@ -140,6 +141,7 @@ function preload() {
 
 function setup() {
   createCanvas(1080, 1080);
+  //createCanvas(windowWidth, windowHeight);
 
   ancho = width / RETICULA;
   alto = height / RETICULA;
@@ -154,18 +156,10 @@ function setup() {
       opciones: opcionesI,
     };
   }
-  //celdas[8].colapsada = true;
-  //celdas[3].colapsada = true;
-
-  //celdas[12].opciones = [5, 6, 8];
-  //celdas[4].opciones = [4, 7, 12];
-  //celdas[6].opciones = [9, 7, 12];
-  //celdas[1].opciones = [6, 4, 8, 10];
-  //celdas[5].opciones = [11, 6, 4, 8, 10];
 }
 
 function draw() {
-  background(100);
+  //background(100);
 
   //Otras formas de escribir la función
 
@@ -180,8 +174,12 @@ function draw() {
   //return celda.colapsada == false; //ingresa la función de forma anónima
   //});
 
+  const celdasConOpciones = celdas.filter((celda) => {
+    return celda.opciones.length > 0;
+  });
+
   //Forma3
-  const celdasDisponibles = celdas.filter((celda) => {
+  const celdasDisponibles = celdasConOpciones.filter((celda) => {
     return celda.colapsada == false;
   }); //recibe el valor y lo compara
 
@@ -205,6 +203,11 @@ function draw() {
       for (let y = 0; y < RETICULA; y++) {
         const celdaIndex = x + y * RETICULA;
         const celdaActual = celdas[celdaIndex];
+
+        if (celdaActual.opciones.length < 1) {
+          fill(255, 100, 100);
+          rect(x * ancho, y * alto, ancho, alto);
+        }
 
         if (celdaActual.colapsada) {
           const indiceDeAzulejos = celdaActual.opciones[0];
