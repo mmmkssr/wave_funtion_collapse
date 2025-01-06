@@ -19,8 +19,8 @@ const reglas = [
 
   {
     //tile 1
-    UP: 1,
-    RIGHT: 1,
+    UP: 0,
+    RIGHT: 0,
     DOWN: 1,
     LEFT: 0,
   },
@@ -28,105 +28,209 @@ const reglas = [
   {
     //tile 2
     UP: 0,
-    RIGHT: 1,
+    RIGHT: 0,
     DOWN: 1,
-    LEFT: 1,
+    LEFT: 0,
   },
 
   {
     //tile 3
-    UP: 1,
-    RIGHT: 1,
-    DOWN: 0,
-    LEFT: 1,
+    UP: 0,
+    RIGHT: 0,
+    DOWN: 1,
+    LEFT: 0,
   },
 
   {
     //tile 4
-    UP: 1,
+    UP: 0,
     RIGHT: 0,
     DOWN: 1,
-    LEFT: 1,
+    LEFT: 0,
   },
 
   {
     //tile 5
     UP: 0,
-    RIGHT: 1,
+    RIGHT: 0,
     DOWN: 1,
     LEFT: 0,
   },
 
   {
     //tile 6
-    UP: 1,
-    RIGHT: 0,
+    UP: 0,
+    RIGHT: 2,
     DOWN: 0,
-    LEFT: 1,
+    LEFT: 0,
   },
 
   {
     //tile 7
     UP: 1,
-    RIGHT: 1,
-    DOWN: 0,
-    LEFT: 0,
+    RIGHT: 2,
+    DOWN: 3,
+    LEFT: 2,
   },
 
   {
     //tile 8
     UP: 0,
     RIGHT: 0,
-    DOWN: 1,
-    LEFT: 1,
+    DOWN: 0,
+    LEFT: 2,
   },
 
   {
     //tile 9
-    UP: 1,
-    RIGHT: 1,
-    DOWN: 1,
-    LEFT: 1,
+    UP: 3,
+    RIGHT: 0,
+    DOWN: 0,
+    LEFT: 0,
   },
 
   {
     //tile 10
-    UP: 0,
+    UP: 3,
     RIGHT: 0,
-    DOWN: 0,
+    DOWN: 3,
     LEFT: 0,
   },
 
   {
     //tile 11
-    UP: 0,
+    UP: 1,
     RIGHT: 0,
-    DOWN: 0,
-    LEFT: 1,
+    DOWN: 1,
+    LEFT: 0,
   },
 
   {
     //tile 12
-    UP: 0,
-    RIGHT: 1,
-    DOWN: 0,
-    LEFT: 0,
+    UP: 1,
+    RIGHT: 2,
+    DOWN: 3,
+    LEFT: 2,
   },
 
   {
     //tile 13
     UP: 1,
     RIGHT: 0,
-    DOWN: 1,
-    LEFT: 0,
+    DOWN: 0,
+    LEFT: 2,
   },
 
   {
     //tile 14
     UP: 0,
-    RIGHT: 1,
+    RIGHT: 2,
+    DOWN: 1,
+    LEFT: 0,
+  },
+
+  {
+    //tile 15
+    UP: 3,
+    RIGHT: 0,
     DOWN: 0,
-    LEFT: 1,
+    LEFT: 0,
+  },
+
+  {
+    //tile 16
+    UP: 1,
+    RIGHT: 2,
+    DOWN: 1,
+    LEFT: 2,
+  },
+
+  {
+    //tile 17
+    UP: 0,
+    RIGHT: 0,
+    DOWN: 1,
+    LEFT: 0,
+  },
+
+  {
+    //tile 18
+    UP: 1,
+    RIGHT: 0,
+    DOWN: 0,
+    LEFT: 0,
+  },
+
+  {
+    //tile 19
+    UP: 0,
+    RIGHT: 2,
+    DOWN: 0,
+    LEFT: 2,
+  },
+
+  {
+    //tile 20
+    UP: 3,
+    RIGHT: 0,
+    DOWN: 3,
+    LEFT: 0,
+  },
+
+  {
+    //tile 21
+    UP: 0,
+    RIGHT: 4,
+    DOWN: 0,
+    LEFT: 0,
+  },
+
+  {
+    //tile 22
+    UP: 1,
+    RIGHT: 0,
+    DOWN: 1,
+    LEFT: 4,
+  },
+
+  {
+    //tile 23
+    UP: 0,
+    RIGHT: 0,
+    DOWN: 0,
+    LEFT: 0,
+  },
+
+  {
+    //tile 24
+    UP: 0,
+    RIGHT: 4,
+    DOWN: 0,
+    LEFT: 0,
+  },
+
+  {
+    //tile 25
+    UP: 1,
+    RIGHT: 4,
+    DOWN: 1,
+    LEFT: 4,
+  },
+
+  {
+    //tile 26
+    UP: 0,
+    RIGHT: 0,
+    DOWN: 0,
+    LEFT: 4,
+  },
+
+  {
+    //tile 14
+    UP: 0,
+    RIGHT: 0,
+    DOWN: 3,
+    LEFT: 0,
   },
 ];
 
@@ -135,7 +239,7 @@ const NA = reglas.length; // número de azulejos
 function preload() {
   for (let i = 0; i < NA; i++) {
     //azulejos[i] = loadImage(`azulejos/tile${i}.png`); // otra forma de cargar las imágenes
-    azulejos[i] = loadImage("azulejos/tile" + i + ".png");
+    azulejos[i] = loadImage("1azulejos/tile" + i + ".png");
   }
 }
 
