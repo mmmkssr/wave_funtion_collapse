@@ -1,5 +1,5 @@
 const celdas = []; // 4x4
-const RETICULA = 20; // número de lados, puede variar
+let RETICULA = document.getElementById("cellSize").value; // número de lados, puede variar
 let ancho; // altura de celda
 let alto; // anchura de celda
 const startButton = document.getElementById("start");
@@ -395,6 +395,9 @@ function draw() {
 }
 
 function resetAll() {
+  RETICULA = document.getElementById("cellSize").value;
+  ancho = width / RETICULA;
+  alto = height / RETICULA;
   background(100);
 
   let opcionesI = [];
