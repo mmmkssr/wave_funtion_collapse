@@ -226,11 +226,27 @@ const reglas = [
   },
 
   {
-    //tile 14
+    //tile 27
     UP: 0,
     RIGHT: 0,
     DOWN: 3,
     LEFT: 0,
+  },
+
+  {
+    //tile 28
+    UP: 3,
+    RIGHT: 0,
+    DOWN: 1,
+    LEFT: 0,
+  },
+
+  {
+    //tile 29
+    UP: 0,
+    RIGHT: 0,
+    DOWN: 1,
+    LEFT: 2,
   },
 ];
 
