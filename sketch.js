@@ -2,6 +2,7 @@ const celdas = []; // 4x4
 const RETICULA = 20; // número de lados, puede variar
 let ancho; // altura de celda
 let alto; // anchura de celda
+const startButton = document.getElementById("start");
 
 const azulejos = [];
 
@@ -276,11 +277,11 @@ function setup() {
       opciones: opcionesI,
     };
   }
+
+  startButton.addEventListener("click", resetAll);
 }
 
 function draw() {
-  //background(100);
-
   //Otras formas de escribir la función
 
   //Forma1
@@ -378,12 +379,6 @@ function draw() {
       //noLoop();
     }
   } else {
-    for (let i = 0; i < RETICULA * RETICULA; i++) {
-      celdas[i] = {
-        colapsada: false,
-        opciones: opcionesI,
-      };
-    }
   }
 
   function cambiarEntropia(_celda, _regla, _opuesta) {
@@ -396,5 +391,20 @@ function draw() {
     }
     _celda.opciones = nuevasOpciones;
     print(nuevasOpciones);
+  }
+}
+
+function resetAll() {
+  background(100);
+
+  let opcionesI = [];
+  for (let i = 0; i < azulejos.length; i++) {
+    opcionesI.push(i);
+  }
+  for (let i = 0; i < RETICULA * RETICULA; i++) {
+    celdas[i] = {
+      colapsada: false,
+      opciones: opcionesI,
+    };
   }
 }
