@@ -1,0 +1,32 @@
+const  reglas  =  [
+    { UP:  0,  RIGHT:  0,  DOWN:  0,  LEFT:  0, },//0
+    { UP:  0,  RIGHT:  0,  DOWN:  1,  LEFT:  0, },//1
+    { UP:  0,  RIGHT:  0,  DOWN:  1,  LEFT:  0, },//2
+    { UP:  0,  RIGHT:  0,  DOWN:  1,  LEFT:  0, },//3
+    { UP:  0,  RIGHT:  0,  DOWN:  1,  LEFT:  0, },//4
+    { UP:  0,  RIGHT:  0,  DOWN:  1,  LEFT:  0, },//5
+    { UP:  0,  RIGHT:  2,  DOWN:  0,  LEFT:  0, },//6
+    { UP:  1,  RIGHT:  2,  DOWN:  3,  LEFT:  2, },//7
+    { UP:  0,  RIGHT:  0,  DOWN:  0,  LEFT:  2, },//8
+    { UP:  3,  RIGHT:  0,  DOWN:  0,  LEFT:  0, },//9
+    { UP:  3,  RIGHT:  0,  DOWN:  3,  LEFT:  0, },//10
+    { UP:  1,  RIGHT:  0,  DOWN:  1,  LEFT:  0, },//11
+    { UP:  1,  RIGHT:  2,  DOWN:  3,  LEFT:  2, },//12
+    { UP:  1,  RIGHT:  0,  DOWN:  0,  LEFT:  2, },//13
+    { UP:  0,  RIGHT:  2,  DOWN:  1,  LEFT:  0, },//14
+    { UP:  3,  RIGHT:  0,  DOWN:  0,  LEFT:  0, },//15
+    { UP:  1,  RIGHT:  2,  DOWN:  1,  LEFT:  2, },//16
+    { UP:  0,  RIGHT:  0,  DOWN:  1,  LEFT:  0, },//17
+    { UP:  1,  RIGHT:  0,  DOWN:  0,  LEFT:  0, },//18
+    { UP:  0,  RIGHT:  2,  DOWN:  0,  LEFT:  2, },//19
+    { UP:  3,  RIGHT:  0,  DOWN:  3,  LEFT:  0, },//20
+    { UP:  0,  RIGHT:  4,  DOWN:  0,  LEFT:  0, },//21
+    { UP:  1,  RIGHT:  0,  DOWN:  1,  LEFT:  4, },//22
+    { UP:  0,  RIGHT:  0,  DOWN:  0,  LEFT:  0, },//23
+    { UP:  0,  RIGHT:  4,  DOWN:  0,  LEFT:  0, },//24
+    { UP:  1,  RIGHT:  4,  DOWN:  1,  LEFT:  4, },//25
+    { UP:  0,  RIGHT:  0,  DOWN:  0,  LEFT:  4, },//26
+    { UP:  0,  RIGHT:  0,  DOWN:  3,  LEFT:  0, },//27
+    { UP:  3,  RIGHT:  0,  DOWN:  1,  LEFT:  0, },//28
+    { UP:  0,  RIGHT:  0,  DOWN:  1,  LEFT:  2, },//29
+];
